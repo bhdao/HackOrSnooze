@@ -42,6 +42,10 @@ function updateNavOnLogin() {
 }
 
 function submitNavClick() {
+  if (currentUser == undefined) {
+    window.alert("You can only submit stories if you are logged in! Please sign up or log in!");
+    return;
+  }
   if (currentTab == "submit") { return };
   checkForRememberedUser();
   hidePageComponents();

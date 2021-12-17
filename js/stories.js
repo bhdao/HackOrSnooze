@@ -103,6 +103,10 @@ function putFavoriteStoriesOnPage() {
 
 
 function addFavoriteStory(e) {
+  if (currentUser == undefined) {
+    window.alert("You will need to sign up or log in to utilize this feature!");
+    return;
+  }
   let id = e.target.parentNode.id;
   currentUser.addFavorite(currentUser, id);
 };
@@ -123,7 +127,9 @@ storiesContainer.addEventListener("click", (e) => {
 
   //If story isn't favorited, sends request to add the story to favorite
   if (e.target.classList.contains("favorite-btn") && !e.target.classList.contains("faved")) {
-    e.target.classList.add("faved")
+    if (currentUser !== undefined) {
+      e.target.classList.add("faved")
+    }
     addFavoriteStory(e);
   }
 
