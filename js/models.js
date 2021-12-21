@@ -231,7 +231,10 @@ class User {
 
   async removeUserStory(currentUser, id) {
     const removeStory = await axios.delete(`https://hack-or-snooze-v3.herokuapp.com/stories/${id}`, { data: { token: currentUser.loginToken } });
-    await getAndShowStoriesOnStart();
+    await checkForRememberedUser();
+    if (currentTab == "faves") {
+      putFavoriteStoriesOnPage();
+    }
     return removeStory;
   }
 

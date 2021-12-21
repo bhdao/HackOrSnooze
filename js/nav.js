@@ -57,6 +57,10 @@ function submitNavClick() {
 $navSubmit.on('click', submitNavClick);
 
 function favoritesNavClick() {
+  if (currentUser == undefined) {
+    window.alert("You can only add new favorites or view the favorites tab if you are logged in! Please sign up or log in!");
+    return;
+  }
   if (currentTab == "faves") { return };
   hidePageComponents();
   checkForRememberedUser()

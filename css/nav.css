@@ -6,9 +6,11 @@ nav {
   align-items: center;
   padding: 5px 20px;
   border-radius: 3px 3px 0 0;
+  font-weight: bold;
 }
 
-.navbar-brand {
+.navbar-brand,
+.navbar-brand > * {
   font-weight: bold;
 }
 
